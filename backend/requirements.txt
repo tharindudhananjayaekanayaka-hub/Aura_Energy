@@ -11,3 +11,8 @@ pandas
 scikit-learn
 tensorflow
 pytest
+prophet
+statsmodels
+plotly
+twilio
+sendgrid
