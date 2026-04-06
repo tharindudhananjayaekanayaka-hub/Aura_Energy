@@ -33,14 +33,16 @@ def send_welcome_email(user_email, username):
             to_emails=user_email,
             subject='Welcome to AuraEnergy AI!',
             html_content=f'''
-                <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee;">
+                <div style="font-family: Arial, sans-serif; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
                     <h2 style="color: #2e7d32;">Welcome to AuraEnergy AI, {username}!</h2>
                     <p>ඔබගේ ගිණුම සාර්ථකව නිර්මාණය කර ඇත. දැන් ඔබට බලශක්ති පරිභෝජනය බුද්ධිමත්ව කළමනාකරණය කළ හැකිය.</p>
-                    <p style="color: #666;">Best Regards,<br>AuraEnergy Support Team</p>
+                    <hr>
+                    <p style="color: #666;">Best Regards,<br><b>AuraEnergy Support Team</b></p>
                 </div>
             '''
         )
         sg = SendGridAPIClient(os.getenv("SENDGRID_API_KEY"))
         sg.send(message)
+        print(f"Email sent successfully to {user_email}")
     except Exception as e:
         print(f"SendGrid Error: {e}")
